@@ -31,6 +31,8 @@ flake8-import-order = "^0.18.1"
 safety = "^2.1.1"
 mypy = "^0.971"
 pytype = {version = "^2022.8.23", python = "3.8"}
+typeguard = "^2.13.3"
+flake8-annotations = "^2.9.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

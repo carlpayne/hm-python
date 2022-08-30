@@ -163,6 +163,19 @@ pycodestyle = ">=2.9.0,<2.10.0"
 pyflakes = ">=2.5.0,<2.6.0"
 
 [[package]]
+name = "flake8-annotations"
+version = "2.9.1"
+description = "Flake8 Type Annotation Checks"
+category = "dev"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+attrs = ">=21.4"
+flake8 = ">=3.7"
+typed-ast = {version = ">=1.4,<2.0", markers = "python_version < \"3.8\""}
+
+[[package]]
 name = "flake8-bandit"
 version = "4.1.1"
 description = "Automated security testing with bandit and flake8."
@@ -541,7 +554,6 @@ ninja = ">=1.10.0.post2"
 pydot = ">=1.4.2"
 tabulate = ">=0.8.10"
 toml = ">=0.10.2"
-typed_ast = {version = ">=1.5.0", markers = "python_version < \"3.8\""}
 typing-extensions = ">=4.3.0"
 
 [[package]]
@@ -664,6 +676,18 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "typeguard"
+version = "2.13.3"
+description = "Run-time type checker for Python"
+category = "dev"
+optional = false
+python-versions = ">=3.5.3"
+
+[package.extras]
+doc = ["sphinx-autodoc-typehints (>=1.2.0)", "sphinx-rtd-theme"]
+test = ["mypy", "pytest", "typing-extensions"]
+
+[[package]]
 name = "types-click"
 version = "7.1.8"
 description = "Typing stubs for click"
@@ -719,7 +743,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "86b6bf4439eaf3a35fa548ed59df189e1fe5e35eb800adb7429131aa7f5f0758"
+content-hash = "898e702b22fc14b4de5311b212a3ed6edb928b88d92da8ae7771d9b39b1dbccd"
 
 [metadata.files]
 atomicwrites = [
@@ -837,6 +861,10 @@ dparse = [
 flake8 = [
     {file = "flake8-5.0.4-py2.py3-none-any.whl", hash = "sha256:7a1cf6b73744f5806ab95e526f6f0d8c01c66d7bbe349562d22dfca20610b248"},
     {file = "flake8-5.0.4.tar.gz", hash = "sha256:6fbe320aad8d6b95cec8b8e47bc933004678dc63095be98528b7bdd2a9f510db"},
+]
+flake8-annotations = [
+    {file = "flake8-annotations-2.9.1.tar.gz", hash = "sha256:11f09efb99ae63c8f9d6b492b75fe147fbc323179fddfe00b2e56eefeca42f57"},
+    {file = "flake8_annotations-2.9.1-py3-none-any.whl", hash = "sha256:a4385158a7a9fc8af1d8820a2f4c8d03387997006a83f5f8bfe5bc6085bdf88a"},
 ]
 flake8-bandit = [
     {file = "flake8_bandit-4.1.1-py3-none-any.whl", hash = "sha256:4c8a53eb48f23d4ef1e59293657181a3c989d0077c9952717e98a0eace43e06d"},
@@ -1152,6 +1180,10 @@ typed-ast = [
     {file = "typed_ast-1.5.4-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:98f80dee3c03455e92796b58b98ff6ca0b2a6f652120c263efdba4d6c5e58f72"},
     {file = "typed_ast-1.5.4-cp39-cp39-win_amd64.whl", hash = "sha256:0fdbcf2fef0ca421a3f5912555804296f0b0960f0418c440f5d6d3abb549f3e1"},
     {file = "typed_ast-1.5.4.tar.gz", hash = "sha256:39e21ceb7388e4bb37f4c679d72707ed46c2fbf2a5609b8b8ebc4b067d977df2"},
+]
+typeguard = [
+    {file = "typeguard-2.13.3-py3-none-any.whl", hash = "sha256:5e3e3be01e887e7eafae5af63d1f36c849aaa94e3a0112097312aabfa16284f1"},
+    {file = "typeguard-2.13.3.tar.gz", hash = "sha256:00edaa8da3a133674796cf5ea87d9f4b4c367d77476e185e80251cc13dfbb8c4"},
 ]
 types-click = [
     {file = "types-click-7.1.8.tar.gz", hash = "sha256:b6604968be6401dc516311ca50708a0a28baa7a0cb840efd7412f0dbbff4e092"},
