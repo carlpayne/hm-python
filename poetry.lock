@@ -2,7 +2,7 @@
 name = "alabaster"
 version = "0.7.12"
 description = "A configurable sidebar-enabled Sphinx theme"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -32,7 +32,7 @@ tests_no_zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy 
 name = "babel"
 version = "2.10.3"
 description = "Internationalization utilities"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -175,7 +175,7 @@ test = ["coverage", "cuvner", "importlib-metadata", "marshmallow-enum", "marshma
 name = "docutils"
 version = "0.17.1"
 description = "Docutils -- Python Documentation Utilities"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -320,7 +320,7 @@ python-versions = ">=3.5"
 name = "imagesize"
 version = "1.4.1"
 description = "Getting image size from png/jpeg/jpeg2000/gif file"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -363,7 +363,7 @@ python-versions = "*"
 name = "jinja2"
 version = "3.1.2"
 description = "A very fast and expressive template engine."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -393,7 +393,7 @@ dev = ["black (==22.3.0)", "coverage (>=4.5.4)", "fixit (==0.1.1)", "flake8 (>=3
 name = "markupsafe"
 version = "2.1.1"
 description = "Safely add untrusted strings to HTML/XML markup."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -488,11 +488,11 @@ pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
 
 [[package]]
 name = "pathspec"
-version = "0.9.0"
+version = "0.10.0"
 description = "Utility library for gitignore style pattern matching of file paths."
 category = "dev"
 optional = false
-python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
+python-versions = ">=3.7"
 
 [[package]]
 name = "pbr"
@@ -582,7 +582,7 @@ python-versions = ">=3.6"
 name = "pygments"
 version = "2.13.0"
 description = "Pygments is a syntax highlighting package written in Python."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -653,7 +653,7 @@ dev = ["pre-commit", "pytest-asyncio", "tox"]
 
 [[package]]
 name = "pytype"
-version = "2022.8.23"
+version = "2022.8.30"
 description = "Python type inferencer"
 category = "dev"
 optional = false
@@ -668,14 +668,13 @@ ninja = ">=1.10.0.post2"
 pydot = ">=1.4.2"
 tabulate = ">=0.8.10"
 toml = ">=0.10.2"
-typed_ast = {version = ">=1.5.0", markers = "python_version < \"3.8\""}
 typing-extensions = ">=4.3.0"
 
 [[package]]
 name = "pytz"
 version = "2022.2.1"
 description = "World timezone definitions, modern and historical"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -763,23 +762,23 @@ python-versions = ">=3.6"
 name = "snowballstemmer"
 version = "2.2.0"
 description = "This package provides 29 stemmers for 28 languages generated from Snowball algorithms."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
 [[package]]
 name = "sphinx"
-version = "4.2.0"
+version = "2.4.5"
 description = "Python documentation generator"
-category = "main"
+category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.5"
 
 [package.dependencies]
 alabaster = ">=0.7,<0.8"
-babel = ">=1.3"
+babel = ">=1.3,<2.0 || >2.0"
 colorama = {version = ">=0.3.5", markers = "sys_platform == \"win32\""}
-docutils = ">=0.14,<0.18"
+docutils = ">=0.12,<0.18"
 imagesize = "*"
 Jinja2 = ">=2.3"
 packaging = "*"
@@ -788,21 +787,35 @@ requests = ">=2.5.0"
 snowballstemmer = ">=1.1"
 sphinxcontrib-applehelp = "*"
 sphinxcontrib-devhelp = "*"
-sphinxcontrib-htmlhelp = ">=2.0.0"
+sphinxcontrib-htmlhelp = "*"
 sphinxcontrib-jsmath = "*"
 sphinxcontrib-qthelp = "*"
-sphinxcontrib-serializinghtml = ">=1.1.5"
+sphinxcontrib-serializinghtml = "*"
 
 [package.extras]
 docs = ["sphinxcontrib-websupport"]
-lint = ["docutils-stubs", "flake8 (>=3.5.0)", "isort", "mypy (>=0.900)", "types-pkg-resources", "types-requests", "types-typed-ast"]
-test = ["cython", "html5lib", "pytest", "pytest-cov", "typed-ast"]
+test = ["docutils-stubs", "flake8 (>=3.5.0)", "flake8-import-order", "html5lib", "mypy (>=0.761)", "pytest (<5.3.3)", "pytest-cov"]
+
+[[package]]
+name = "sphinx-autodoc-typehints"
+version = "1.10.3"
+description = "Type hints (PEP 484) support for the Sphinx autodoc extension"
+category = "dev"
+optional = false
+python-versions = ">=3.5.2"
+
+[package.dependencies]
+Sphinx = ">=2.1"
+
+[package.extras]
+test = ["dataclasses", "pytest (>=3.1.0)", "sphobjinv (>=2.0)", "typing-extensions (>=3.5)"]
+type_comments = ["typed-ast (>=1.4.0)"]
 
 [[package]]
 name = "sphinxcontrib-applehelp"
 version = "1.0.2"
 description = "sphinxcontrib-applehelp is a sphinx extension which outputs Apple help books"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -814,7 +827,7 @@ test = ["pytest"]
 name = "sphinxcontrib-devhelp"
 version = "1.0.2"
 description = "sphinxcontrib-devhelp is a sphinx extension which outputs Devhelp document."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -826,7 +839,7 @@ test = ["pytest"]
 name = "sphinxcontrib-htmlhelp"
 version = "2.0.0"
 description = "sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -838,7 +851,7 @@ test = ["html5lib", "pytest"]
 name = "sphinxcontrib-jsmath"
 version = "1.0.1"
 description = "A sphinx extension which renders display math in HTML via JavaScript"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -849,7 +862,7 @@ test = ["flake8", "mypy", "pytest"]
 name = "sphinxcontrib-qthelp"
 version = "1.0.3"
 description = "sphinxcontrib-qthelp is a sphinx extension which outputs QtHelp document."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -861,7 +874,7 @@ test = ["pytest"]
 name = "sphinxcontrib-serializinghtml"
 version = "1.1.5"
 description = "sphinxcontrib-serializinghtml is a sphinx extension which outputs \"serialized\" HTML files (json and pickle)."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -1006,7 +1019,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "afcb211b59733387d35e653995160babba84160281e130d5bea9e12a532127e6"
+content-hash = "c2cbd846611b8400562299fccf71debb84821b6fd88e9fe275b8abcbbe2d0fcf"
 
 [metadata.files]
 alabaster = [
@@ -1331,8 +1344,8 @@ packaging = [
     {file = "packaging-21.3.tar.gz", hash = "sha256:dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"},
 ]
 pathspec = [
-    {file = "pathspec-0.9.0-py2.py3-none-any.whl", hash = "sha256:7d15c4ddb0b5c802d161efc417ec1a2558ea2653c2e8ad9c19098201dc1c993a"},
-    {file = "pathspec-0.9.0.tar.gz", hash = "sha256:e564499435a2673d586f6b2130bb5b95f04a3ba06f81b8f895b651a3c76aabb1"},
+    {file = "pathspec-0.10.0-py3-none-any.whl", hash = "sha256:aefa80ac32d5bf1f96139dca67cefb69a431beff4e6bf1168468f37d7ab87015"},
+    {file = "pathspec-0.10.0.tar.gz", hash = "sha256:01eecd304ba0e6eeed188ae5fa568e99ef10265af7fd9ab737d6412b4ee0ab85"},
 ]
 pbr = [
     {file = "pbr-5.10.0-py2.py3-none-any.whl", hash = "sha256:da3e18aac0a3c003e9eea1a81bd23e5a3a75d745670dcf736317b7d966887fdf"},
@@ -1387,19 +1400,19 @@ pytest-mock = [
     {file = "pytest_mock-3.8.2-py3-none-any.whl", hash = "sha256:8a9e226d6c0ef09fcf20c94eb3405c388af438a90f3e39687f84166da82d5948"},
 ]
 pytype = [
-    {file = "pytype-2022.8.23-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:92b4e981c71b7f79126ef2c52a04bc2dafc061b88b65427702e95d77882a72ad"},
-    {file = "pytype-2022.8.23-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:3a68f85c59e3d1add8583a5dfd74db3817c7d653134a5955707bce7e31c2785d"},
-    {file = "pytype-2022.8.23-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b9fe9d7d5fcd9b44d8981832ee49123cd5596d8e8ecaf3c7472c9ccc191fadac"},
-    {file = "pytype-2022.8.23-cp37-cp37m-macosx_10_15_x86_64.whl", hash = "sha256:a0ead4f4d33b5ebc4d572bc6e673241828906630e6efc2a2bbadf68d3fe2cbc7"},
-    {file = "pytype-2022.8.23-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:3b766edfa62d214900bcb6572eadd1434d013f5bd701b6ac4d9f557b624293d7"},
-    {file = "pytype-2022.8.23-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e9212f982c51f830b043aaa134e04ce9f6b7cc6eb32903959d6ba6fdb55765cc"},
-    {file = "pytype-2022.8.23-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:addd39eccc9f1351acfcde4e0a9c7c11fbae0cc5245abf11b6e1e84b880b142d"},
-    {file = "pytype-2022.8.23-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4c99099bf3efdfaaadb6c83100e0c0a0a3c1b6b7880a6f3652324c56c854da32"},
-    {file = "pytype-2022.8.23-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:430a5b5104a96ada9c0f3f4f4320754d08240113ebd5d7a9cf2057c8287a8621"},
-    {file = "pytype-2022.8.23-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:a044f30f417979bf76edb480cb359f36434bc8284a3b6fb6c1a91bff60afaeb0"},
-    {file = "pytype-2022.8.23-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d822da7464cccd45795460776874dc20be39f15349891a30861e3d0faee54a14"},
-    {file = "pytype-2022.8.23-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:7781a9ad52487936431f4d110f28ee82bc7683b7250046a350f134a199cde01b"},
-    {file = "pytype-2022.8.23.tar.gz", hash = "sha256:c498162248f21cc1e9510070594c8e28461c2c7a935d754c09d492ac7cd03842"},
+    {file = "pytype-2022.8.30-cp310-cp310-macosx_10_15_x86_64.whl", hash = "sha256:4488b1d557275cbbedb805c4b9710e7834069d933e7cf2f34cb92b5833357120"},
+    {file = "pytype-2022.8.30-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d81ace0b1a672f633de023fce729bd2b137fbb5109e98fcf38c563da0e642481"},
+    {file = "pytype-2022.8.30-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:31e4eb8637276e4913303b4578ed99739f41050006fd255166d0d76746d420b2"},
+    {file = "pytype-2022.8.30-cp37-cp37m-macosx_10_15_x86_64.whl", hash = "sha256:392abdc8a7ff2b5c9bbe522adb78932b3a3cf838b88e0d9c403fe8f5a52a9c90"},
+    {file = "pytype-2022.8.30-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:8b454129edd8753a3ce827bd58e42adf3520452f1e815406397758307c7e70ab"},
+    {file = "pytype-2022.8.30-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:be73f0bfaba506166a685398fa57c8373ca2afeee309d838f69665367dafee0b"},
+    {file = "pytype-2022.8.30-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:1bae6d98154a61c5d60ecffe45158d8132630f4aa659641ecd7ebf50fb22c460"},
+    {file = "pytype-2022.8.30-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:3939c0ca68cf49c7b0d5499c5365d48692cfe132392844435cbbd31cd5684fa0"},
+    {file = "pytype-2022.8.30-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:eac9afb9a1f28d9a79880dcc1959bd3ae9bf5ceddf302fa02229dcd5c57316fc"},
+    {file = "pytype-2022.8.30-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:659109b024456ffa13570480a1f7fef7ea077d2d88a57c0eb668c3e88d2c6ca3"},
+    {file = "pytype-2022.8.30-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0a601165296fc5b5f4f3bccfcacc2edbe2f655d2157634ba8753e5a0fdbcc27a"},
+    {file = "pytype-2022.8.30-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a64a9a5a0c16eb843ac236a734a8a4975a61561f5efe50154037d2fa9120af84"},
+    {file = "pytype-2022.8.30.tar.gz", hash = "sha256:20b9d2875840666ee024a6814fb03dddf2ff5d0a9ebd32b1078afa3bf840d4d2"},
 ]
 pytz = [
     {file = "pytz-2022.2.1-py2.py3-none-any.whl", hash = "sha256:220f481bdafa09c3955dfbdddb7b57780e9a94f5127e35456a48589b9e0c0197"},
@@ -1497,8 +1510,12 @@ snowballstemmer = [
     {file = "snowballstemmer-2.2.0.tar.gz", hash = "sha256:09b16deb8547d3412ad7b590689584cd0fe25ec8db3be37788be3810cbf19cb1"},
 ]
 sphinx = [
-    {file = "Sphinx-4.2.0-py3-none-any.whl", hash = "sha256:98a535c62a4fcfcc362528592f69b26f7caec587d32cd55688db580be0287ae0"},
-    {file = "Sphinx-4.2.0.tar.gz", hash = "sha256:94078db9184491e15bce0a56d9186e0aec95f16ac20b12d00e06d4e36f1058a6"},
+    {file = "Sphinx-2.4.5-py3-none-any.whl", hash = "sha256:02d7e9dc5f30caa42a682b26de408b755a55c7b07f356a30a3b6300bf7d4740e"},
+    {file = "Sphinx-2.4.5.tar.gz", hash = "sha256:b00394e90463e7482c4cf59e7db1c8604baeca1468abfc062904dedc1cea6fcc"},
+]
+sphinx-autodoc-typehints = [
+    {file = "sphinx-autodoc-typehints-1.10.3.tar.gz", hash = "sha256:a6b3180167479aca2c4d1ed3b5cb044a70a76cccd6b38662d39288ebd9f0dff0"},
+    {file = "sphinx_autodoc_typehints-1.10.3-py3-none-any.whl", hash = "sha256:27c9e6ef4f4451766ab8d08b2d8520933b97beb21c913f3df9ab2e59b56e6c6c"},
 ]
 sphinxcontrib-applehelp = [
     {file = "sphinxcontrib-applehelp-1.0.2.tar.gz", hash = "sha256:a072735ec80e7675e3f432fcae8610ecf509c5f1869d17e2eecff44389cdbc58"},
