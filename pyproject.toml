@@ -7,6 +7,7 @@ license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/carlpayne/hm-python"
 repository = "https://github.com/carlpayne/hm-python"
+documentation = "https://hm-python.readthedocs.io/en/latest/"
 keywords = ["hypermodern"]
 
 [tool.poetry.dependencies]
@@ -16,6 +17,7 @@ requests = "^2.28.1"
 types-click = "^7.1.8"
 desert = "^2020.11.18"
 marshmallow = "^3.17.1"
+Sphinx = "4.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
